@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Voxxwire — A free, fully offline real-time speech translator for Windows. Translate 49+ languages live in meetings — no cloud, no subscriptions.">
+    <meta name="keywords"
+        content="offline translator, speech translator, real-time translation, Windows translator, free translator, Voxxwire">
+    <meta name="author" content="Jay Parmar, Raj Prajapati">
+    <link rel="canonical" href="https://voxxwire.com/">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Voxxwire — Offline Real-Time Speech Translator">
+    <meta property="og:description"
+        content="Free, fully offline desktop translator. 49+ languages, real-time, no internet required.">
+    <meta property="og:url" content="https://voxxwire.com/">
+    <meta property="og:type" content="website">
+    <title>Voxxwire — Offline Real-Time Speech Translator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- ═══════════ NAVIGATION ═══════════ -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">⚡ Voxxwire</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#languages">Languages</a>
+                <a href="#download" class="nav-cta">Download</a>
+            </div>
+            <button id="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <header id="hero">
+        <div class="hero-bg-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">100% Offline · No Cloud · No Subscriptions</div>
+            <h1>Translate Speech<br><span class="gradient-text">In Real Time.</span></h1>
+            <p class="hero-subtitle">
+                Voxxwire is a free, fully offline desktop translator that listens to your microphone
+                and system audio, translates speech on the fly, and speaks the translation aloud
+                — all without ever touching the internet.
+            </p>
+            <div class="hero-actions">
+                <a href="#download" class="btn btn-primary" id="hero-download-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download for Windows
+                </a>
+                <a href="#how-it-works" class="btn btn-outline" id="hero-learn-btn">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number">49+</span><span class="stat-label">Languages</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-number">&lt;1s</span><span class="stat-label">Latency</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Data Sent</span></div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="app-preview">
+                <div class="preview-bar">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="preview-title">Voxxwire</span>
+                </div>
+                <div class="preview-body">
+                    <div class="preview-line you">
+                        <span class="tag you-tag">YOU · ENG</span>
+                        <span>Hello, can everyone hear me?</span>
+                    </div>
+                    <div class="preview-line you translated">
+                        <span class="tag jpn-tag">JPN</span>
+                        <span>皆さん、聞こえますか？</span>
+                    </div>
+                    <div class="preview-line remote">
+                        <span class="tag remote-tag">REMOTE · JPN</span>
+                        <span>はい、聞こえます。始めましょう。</span>
+                    </div>
+                    <div class="preview-line remote translated">
+                        <span class="tag eng-tag">ENG</span>
+                        <span>Yes, I can hear you. Let's begin.</span>
+                    </div>
+                    <div class="preview-cursor">|</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════ FEATURES ═══════════ -->
+    <section id="features">
+        <div class="section-inner">
+            <span class="section-badge">Why Voxxwire?</span>
+            <h2>Powerful Features,<br><span class="gradient-text">Zero Compromises.</span></h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos>
+                    <div class="feature-icon">🔒</div>
+                    <h3>Fully Offline</h3>
+                    <p>All AI models run entirely on your machine. Your conversations never leave your computer — total
+                        privacy guaranteed.</p>
+                </div>
+                <div class="feature-card" data-aos>
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-Time</h3>
+                    <p>Sub-second latency from speech detection to translated audio output, powered by Whisper ASR and
+                        Silero VAD.</p>
+                </div>
+                <div class="feature-card" data-aos>
+                    <div class="feature-icon">🎙️</div>
+                    <h3>Dual Channel</h3>
+                    <p>Translates your mic and system audio simultaneously — perfect for Zoom, Teams, and Google Meet
+                        calls.</p>
+                </div>
+                <div class="feature-card" data-aos>
+                    <div class="feature-icon">🌐</div>
+                    <h3>49+ Languages</h3>
+                    <p>From Arabic to Vietnamese — translate between 49+ languages with auto-download of language packs
+                        on first use.</p>
+                </div>
+                <div class="feature-card" data-aos>
+                    <div class="feature-icon">📝</div>
+                    <h3>Live Subtitles</h3>
+                    <p>See real-time subtitles for both original and translated speech, with speaker labels and
+                        timestamps.</p>
+                </div>
+                <div class="feature-card" data-aos>
+                    <div class="feature-icon">🆓</div>
+                    <h3>Free & Open</h3>
+                    <p>No subscriptions, no API keys, no hidden costs. Download once and use forever.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ HOW IT WORKS ═══════════ -->
+    <section id="how-it-works">
+        <div class="section-inner">
+            <span class="section-badge">Under the Hood</span>
+            <h2>How It <span class="gradient-text">Works</span></h2>
+            <div class="pipeline">
+                <div class="pipeline-step" data-aos>
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Audio Capture</h3>
+                        <p>Captures your microphone and system audio streams in real time using low-latency audio
+                            drivers.</p>
+                    </div>
+                </div>
+                <div class="pipeline-connector"></div>
+                <div class="pipeline-step" data-aos>
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Voice Activity Detection</h3>
+                        <p>Silero VAD detects when someone is speaking and segments the audio into utterances, filtering
+                            silence.</p>
+                    </div>
+                </div>
+                <div class="pipeline-connector"></div>
+                <div class="pipeline-step" data-aos>
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Speech Recognition</h3>
+                        <p>OpenAI's Whisper model (via faster-whisper) transcribes the spoken audio into text with high
+                            accuracy.</p>
+                    </div>
+                </div>
+                <div class="pipeline-connector"></div>
+                <div class="pipeline-step" data-aos>
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Translation</h3>
+                        <p>Argos Translate converts the transcribed text from the source language to your target
+                            language, entirely offline.</p>
+                    </div>
+                </div>
+                <div class="pipeline-connector"></div>
+                <div class="pipeline-step" data-aos>
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Output</h3>
+                        <p>The translated text is displayed as live subtitles and spoken aloud through Piper TTS voices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ LANGUAGES ═══════════ -->
+    <section id="languages">
+        <div class="section-inner">
+            <span class="section-badge">Supported Languages</span>
+            <h2>Speak Your <span class="gradient-text">Language</span></h2>
+            <div class="lang-grid">
+                <div class="lang-card" data-aos>
+                    <div class="lang-flag">🇬🇧</div>
+                    <h3>English</h3>
+                    <p>ASR & Translation</p>
+                </div>
+                <div class="lang-card" data-aos>
+                    <div class="lang-flag">🇯🇵</div>
+                    <h3>Japanese</h3>
+                    <p>ASR & Translation</p>
+                </div>
+                <div class="lang-card" data-aos>
+                    <div class="lang-flag">🇮🇳</div>
+                    <h3>Hindi</h3>
+                    <p>ASR & Translation</p>
+                </div>
+                <div class="lang-card" data-aos>
+                    <div class="lang-flag">🇫🇷</div>
+                    <h3>French</h3>
+                    <p>ASR & Translation</p>
+                </div>
+                <div class="lang-card" data-aos>
+                    <div class="lang-flag">🇩🇪</div>
+                    <h3>German</h3>
+                    <p>ASR & Translation</p>
+                </div>
+                <div class="lang-card" data-aos>
+                    <div class="lang-flag">🇪🇸</div>
+                    <h3>Spanish</h3>
+                    <p>ASR & Translation</p>
+                </div>
+                <div class="lang-card" data-aos>
+                    <div class="lang-flag">🇨🇳</div>
+                    <h3>Chinese</h3>
+                    <p>ASR & Translation</p>
+                </div>
+                <div class="lang-card" data-aos>
+                    <div class="lang-flag">🇰🇷</div>
+                    <h3>Korean</h3>
+                    <p>ASR & Translation</p>
+                </div>
+                <div class="lang-card" data-aos>
+                    <div class="lang-flag">🇸🇦</div>
+                    <h3>Arabic</h3>
+                    <p>ASR & Translation</p>
+                </div>
+            </div>
+            <p style="text-align:center; color:var(--text-muted); margin-top:1.5rem;">...and 40+ more languages
+                including Portuguese, Russian, Italian, Dutch, Turkish, Thai, Vietnamese, and more!</p>
+        </div>
+    </section>
+
+    <!-- ═══════════ REQUIREMENTS ═══════════ -->
+    <section id="requirements">
+        <div class="section-inner">
+            <span class="section-badge">System Requirements</span>
+            <h2>What You <span class="gradient-text">Need</span></h2>
+            <div class="req-grid">
+                <div class="req-item">
+                    <div class="req-icon">💻</div>
+                    <div>
+                        <h4>Windows 10 / 11</h4>
+                        <p>64-bit operating system required</p>
+                    </div>
+                </div>
+                <div class="req-item">
+                    <div class="req-icon">🧠</div>
+                    <div>
+                        <h4>8 GB RAM</h4>
+                        <p>4 GB minimum, 8 GB recommended</p>
+                    </div>
+                </div>
+                <div class="req-item">
+                    <div class="req-icon">🎮</div>
+                    <div>
+                        <h4>NVIDIA GPU</h4>
+                        <p>Recommended for faster processing (CPU works too)</p>
+                    </div>
+                </div>
+                <div class="req-item">
+                    <div class="req-icon">🎤</div>
+                    <div>
+                        <h4>Microphone</h4>
+                        <p>Any working microphone for speech input</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ DOWNLOAD CTA ═══════════ -->
+    <section id="download">
+        <div class="section-inner download-section">
+            <div class="download-glow"></div>
+            <span class="section-badge">Get Started</span>
+            <h2>Download <span class="gradient-text">Voxxwire</span></h2>
+            <p class="download-desc">Free. Offline. Forever yours.</p>
+            <a href="https://github.com/jayparmar1301/Voxxwire/releases/latest" class="btn btn-primary btn-large"
+                id="main-download-btn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download for Windows (~210 MB)
+            </a>
+            <p class="download-note">Requires Windows 10/11 64-bit · ~850 MB after installation · No internet required
+                after setup</p>
+        </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer id="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">⚡ Voxxwire</span>
+                <p>Real-Time Offline Speech Translator</p>
+            </div>
+            <div class="footer-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#download">Download</a>
+            </div>
+            <div class="footer-bottom">
+                <p>Created by <strong>Jay Parmar</strong> and <strong>Raj Prajapati</strong></p>
+                <p class="footer-copy">&copy; 2026 Voxxwire. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ─── Mobile menu toggle ───
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            menuBtn.classList.toggle('active');
+        });
+
+        // ─── Navbar scroll effect ───
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // ─── Smooth scroll for anchor links ───
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navLinks.classList.remove('open');
+                    menuBtn.classList.remove('active');
+                }
+            });
+        });
+
+        // ─── Scroll-reveal animation ───
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

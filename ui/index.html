@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voxxwire — Offline Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- ═══ ANIMATED BACKGROUND ═══ -->
+    <div class="bg-effects">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- ═══ CUSTOM TITLE BAR ═══ -->
+    <header class="titlebar" id="titlebar">
+        <div class="titlebar-left">
+            <div class="app-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="url(#iconGrad)"
+                        opacity="0.2" />
+                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"
+                        fill="url(#iconGrad)" />
+                    <path
+                        d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"
+                        fill="url(#iconGrad)" />
+                    <defs>
+                        <linearGradient id="iconGrad" x1="2" y1="2" x2="22" y2="22">
+                            <stop stop-color="#00d4ff" />
+                            <stop offset="1" stop-color="#7b2ff7" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <span class="app-title">Voxxwire</span>
+            <span class="app-version">v1.0</span>
+        </div>
+        <div class="titlebar-center">
+            <div class="status-indicator" id="statusIndicator">
+                <div class="status-dot idle" id="statusDot"></div>
+                <span class="status-text" id="statusText">Ready</span>
+            </div>
+        </div>
+        <div class="titlebar-right">
+            <!-- Window controls handled by pywebview -->
+        </div>
+    </header>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="app-content">
+        <!-- ─── LEFT PANEL: Settings ─── -->
+        <aside class="panel panel-settings" id="settingsPanel">
+            <div class="panel-scroll">
+
+                <!-- Audio Devices -->
+                <section class="settings-section">
+                    <div class="section-header">
+                        <span class="section-icon">🎧</span>
+                        <h3>Audio Devices</h3>
+                    </div>
+                    <div class="form-group">
+                        <label for="micDevice">Microphone Input</label>
+                        <div class="select-wrapper">
+                            <select id="micDevice"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loopbackDevice">System Audio (Loopback)</label>
+                        <div class="select-wrapper">
+                            <select id="loopbackDevice"></select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mic Channel Languages -->
+                <section class="settings-section">
+                    <div class="section-header">
+                        <span class="section-icon">🎙️</span>
+                        <h3>Your Speech</h3>
+                    </div>
+                    <div class="lang-row">
+                        <div class="form-group compact">
+                            <label for="micSrcLang">You speak</label>
+                            <div class="select-wrapper">
+                                <select id="micSrcLang"></select>
+                            </div>
+                        </div>
+                        <div class="lang-arrow">→</div>
+                        <div class="form-group compact">
+                            <label for="micTgtLang">Translate to</label>
+                            <div class="select-wrapper">
+                                <select id="micTgtLang"></select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Loopback Channel Languages -->
+                <section class="settings-section">
+                    <div class="section-header">
+                        <span class="section-icon">🔊</span>
+                        <h3>Remote Speech</h3>
+                    </div>
+                    <div class="lang-row">
+                        <div class="form-group compact">
+                            <label for="lbSrcLang">They speak</label>
+                            <div class="select-wrapper">
+                                <select id="lbSrcLang"></select>
+                            </div>
+                        </div>
+                        <div class="lang-arrow">→</div>
+                        <div class="form-group compact">
+                            <label for="lbTgtLang">Translate to</label>
+                            <div class="select-wrapper">
+                                <select id="lbTgtLang"></select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ASR Model -->
+                <section class="settings-section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h3>ASR Model</h3>
+                    </div>
+                    <div class="form-group">
+                        <label for="whisperModel">Whisper Model Size</label>
+                        <div class="model-cards">
+                            <button class="model-card" data-value="tiny">
+                                <span class="model-name">Tiny</span>
+                                <span class="model-desc">Fastest</span>
+                            </button>
+                            <button class="model-card" data-value="base">
+                                <span class="model-name">Base</span>
+                                <span class="model-desc">Fast</span>
+                            </button>
+                            <button class="model-card active" data-value="small">
+                                <span class="model-name">Small</span>
+                                <span class="model-desc">Balanced</span>
+                            </button>
+                            <button class="model-card" data-value="medium">
+                                <span class="model-name">Medium</span>
+                                <span class="model-desc">Accurate</span>
+                            </button>
+                            <button class="model-card" data-value="large-v3">
+                                <span class="model-name">Large</span>
+                                <span class="model-desc">Best</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Toggles -->
+                <section class="settings-section">
+                    <div class="section-header">
+                        <span class="section-icon">⚙️</span>
+                        <h3>Options</h3>
+                    </div>
+                    <div class="toggle-group">
+                        <div class="toggle-row">
+                            <span class="toggle-label">Show Subtitles</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggleSubtitles" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-row">
+                            <span class="toggle-label">Mic Channel</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggleMic" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-row">
+                            <span class="toggle-label">Loopback Channel</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggleLoopback" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </aside>
+
+        <!-- ─── RIGHT PANEL: Output ─── -->
+        <section class="panel panel-output">
+            <!-- Live Translation Display -->
+            <div class="output-area" id="outputArea">
+                <div class="output-header">
+                    <h3>💬 Live Translation</h3>
+                    <button class="btn-icon" id="clearBtn" title="Clear output">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="output-scroll" id="outputScroll">
+                    <div class="output-welcome" id="outputWelcome">
+                        <div class="welcome-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"
+                                    fill="url(#wGrad)" opacity="0.6" />
+                                <path
+                                    d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"
+                                    fill="url(#wGrad)" opacity="0.6" />
+                                <defs>
+                                    <linearGradient id="wGrad" x1="5" y1="2" x2="19" y2="22">
+                                        <stop stop-color="#00d4ff" />
+                                        <stop offset="1" stop-color="#7b2ff7" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <p class="welcome-title">Ready to translate</p>
+                        <p class="welcome-subtitle">Select your languages and click Start to begin real-time translation
+                        </p>
+                    </div>
+                    <div class="output-messages" id="outputMessages"></div>
+                </div>
+            </div>
+
+            <!-- Log Console -->
+            <div class="log-area" id="logArea">
+                <div class="log-header" id="logToggle">
+                    <span>📋 Engine Log</span>
+                    <svg class="log-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg>
+                </div>
+                <div class="log-content" id="logContent">
+                    <pre class="log-text" id="logText"></pre>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <!-- Control Bar -->
+            <div class="control-bar">
+                <button class="btn-start" id="startBtn">
+                    <span class="btn-start-icon">▶</span>
+                    <span class="btn-start-text">Start Translator</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="app-footer">
+        <span>Created by <strong>Jay Parmar</strong> and <strong>Raj Prajapati</strong></span>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

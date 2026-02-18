@@ -19,3 +19,9 @@ piper-tts>=1.2.0
 # Utilities
 torch>=2.0.0
 torchaudio>=2.0.0
+
+# GUI
+customtkinter>=5.2.0
+
+# Packaging
+pyinstaller>=6.0.0

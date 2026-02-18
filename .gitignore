@@ -1,0 +1,25 @@
+# Build artifacts
+build/
+dist/
+installer_output/
+*.spec
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Logs
+*.log
+
+# Piper voices (downloaded at runtime)
+piper_voices/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+.DS_Store
